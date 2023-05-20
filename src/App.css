@@ -54,3 +54,23 @@
   color:rgb(9, 7, 8);
   padding: 0px;
 }
+table {
+  border: 2px solid rgb(239, 7, 200);
+  width: 800px;
+  height: 100px;
+  margin: auto;
+  padding: 30;
+}
+  
+th {
+  background-color: rgb(208, 148, 199);
+}
+  
+td {
+  text-align: center;
+  background-color: rgb(220, 213, 220);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+tr {
+  border: 2px solid rgb(239, 7, 200);
+}
