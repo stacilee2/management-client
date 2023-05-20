@@ -1,12 +1,39 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function NavBar() {
   return (
     <nav className="nav-bar">
-        <Link className="nav-link" to='/'>Home</Link>
-        <Link className="nav-link" to='/caseload'>Caseload</Link>
-        <Link className="nav-link" to='/locations'>Locations</Link>
+         <NavLink 
+            exact to='/'
+            style={({ isActive }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  color: isActive ? "pink" : "white"
+                };
+              }}>
+            Home
+        </NavLink>
+         <NavLink 
+            exact to='/caseload'
+            style={({ isActive }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  color: isActive ? "pink" : "white"
+                };
+              }}>
+            Caseload
+        </NavLink>
+        <NavLink 
+            exact to='/locations'
+            style={({ isActive }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  color: isActive ? "pink" : "white"
+                };
+              }}>
+            Locations
+        </NavLink>
     </nav>
   )
 }
