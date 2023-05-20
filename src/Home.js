@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Home({VscAccount, AiOutlineMail}) {
-    
+
     function handleClick() {
         console.log("I've been clicked!")
       }
@@ -16,7 +16,7 @@ function Home({VscAccount, AiOutlineMail}) {
             </button>
             <h3>Check Your Email Here:</h3>
             <div className="email"> <AiOutlineMail />
-            <a href="https://accounts.google.com/signin/v2/challenge/pwd?elo=1&ifkv=Af_xneG9TGl771_rD-GJZ4yhw3_at8BZKa8fumdhkt7YdgksK0I5McuITFi_C90Q6TCkOoBCvLQWNg&flowName=GlifWebSignIn&flowEntry=ServiceLogin&cid=1&navigationDirection=forward&TL=AG7eRGDNNRW8s1pKFtn8qPpJ6k7Ys47S1r5qo11wIW6igT4Da0-fauattqmIBwRi">Specialty Therapy Email</a>
+            <a>Specialty Therapy Email</a>
             </div>
            
             <h3>Help Center</h3>
