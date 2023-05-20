@@ -2,12 +2,27 @@
   background-color: rgb(77, 76, 76);
   display: flex;
   justify-content: space-evenly;
-  font-size: larger;
+  font-size: large;
   color:rgb(251, 5, 210)
 }
-.nav-link{
-  color: rgb(247, 246, 247);
-  padding: 2%;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: large
+
+.nav-link {
+  float: left;
+  padding: 10px 80px;
+  font-size: 17px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+.logo-icon {
+  font-size: 40px;
+  padding: 1%;
+}
+.company-name {
+  font-size: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 0%;
 }

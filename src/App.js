@@ -5,11 +5,12 @@ import Home from './Home';
 import Caseload from './Caseload';
 import Locations from './Locations';
 import NavBar from './NavBar';
+import {GiConversation} from "react-icons/gi";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <NavBar GiConversation={GiConversation} />
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route path='/caseload' element={<Caseload />} />
