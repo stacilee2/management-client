@@ -1,4 +1,5 @@
 import React from 'react';
+import {Routes, Route} from 'react-router-dom';
 import './App.css';
 import Home from './Home';
 import Caseload from './Caseload';
@@ -9,9 +10,11 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Home />
-      <Caseload />
-      <Locations />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/caseload' element={<Caseload />} />
+        <Route path='/locations' element={<Locations />} />
+      </Routes>
     </div>
   );
 }
