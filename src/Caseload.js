@@ -14,7 +14,7 @@ function Caseload( {therapists} ) {
             .then(r => r.json())
             .then(data => setRows(data))
         }, [])
-        
+
     const Row = (props) => {
         const {name, age, location, eligibility, minutes} = props
         return (
@@ -61,7 +61,7 @@ function Caseload( {therapists} ) {
     //Return Table component handing in rows
     return (
         <div>
-            <h1 className="header">Caseload: Region 4</h1>
+            <h1 className="page-header">Caseload: Region 4</h1>
             <Table data = {rows} />
             </div>
     )

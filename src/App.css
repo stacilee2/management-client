@@ -56,10 +56,10 @@
 }
 table {
   border: 2px solid rgb(239, 7, 200);
-  width: 800px;
+  width: 1200px;
   height: 100px;
   margin: auto;
-  padding: 30;
+  padding: 20px 10px;
 }
   
 th {
