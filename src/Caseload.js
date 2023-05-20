@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
 function Caseload( {therapists} ) {
-    console.log("The names of the therapists:", therapists)
 
     const [clients, setClients] = useState([])
     //Set state to data object
     const [rows, setRows] = useState(clients)
-    console.log("The clients", clients)
-
+   
         //Make GET request to backend for caseload information
         useEffect(() => {
             fetch("http://localhost:9292/client")
