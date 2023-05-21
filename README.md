@@ -1,6 +1,8 @@
 # Therapy Client Management Systems
 
-***Help your clinic improve their organizational skills with the application created by Specialty Therapy Services, LLC.
+***
+
+Help your clinic improve their organizational skills with the application created by Specialty Therapy Services, LLC.
 
 # Features
 
