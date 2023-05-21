@@ -16,7 +16,7 @@ function Home({VscAccount, AiOutlineMail}) {
             </button>
             <h3>Check Your Email Here:</h3>
             <div className="email"> <AiOutlineMail />
-            <a>Specialty Therapy Email</a>
+            <a href="email.com">Specialty Therapy Email</a>
             </div>
            
             <h3>Help Center</h3>

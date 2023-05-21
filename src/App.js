@@ -12,7 +12,31 @@ import { VscAccount } from "react-icons/vsc";
 function App() {
 
   const[therapists, setTherapists] = useState([])
+  const[addFormData, setAddFormData] = useState({
+    name: "",
+    age: "",
+    location: "",
+    eligibility: "",
+    minutes: "",
+  });
 
+  const [editFormData, setEditFormData] = useState({
+    name: "",
+    age: "",
+    location: "",
+    eligibility: "",
+    minutes: "",
+  });
+
+  const handleEditFormChange = (e) => {
+    e.preventDefault();
+
+    const fieldName = e.target.getAttribute("name")
+    const fieldValue = e.target.value;
+
+    const newFormData = { ...editFormData }
+    newFormData[fieldName] = fieldValue;
+  }
     useEffect(() => {
       fetch("http://localhost:9292/therapist")
       .then(r => r.json())
@@ -24,8 +48,8 @@ function App() {
       <NavBar GiConversation={GiConversation} />
       <Routes>
         <Route exact path='/' element={<Home VscAccount={VscAccount} AiOutlineMail={AiOutlineMail} />} />
-        <Route path='/caseload' element={<Caseload therapists={therapists} />} />
-        <Route path='/locations' element={<Locations />} />
+        <Route path='/caseload' element={<Caseload />} />
+        <Route path='/locations' element={<Locations therapists={therapists} />} />
       </Routes>
     </div>
   );

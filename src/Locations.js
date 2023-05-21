@@ -1,6 +1,9 @@
 import React from 'react'
 
-function Locations() {
+function Locations( {therapists}) {
+
+  let therapistList = therapists
+  console.log(therapistList)
 
   let locationsList = [ 
     {name: "Southern Hills", phone: "523-444-5252", address: "320 Southern Hills Rd., Tallulah, TX 77809"}, 
@@ -10,21 +13,19 @@ function Locations() {
   ]
 
   return (
-    <div>
-      <h3>Locations: </h3>
-      {locationsList.map(location => {
+    <div className="location-container">
+      {locationsList.map((location) => {
         return(
-          <div className="location-card" key={location.name}>{location.name}
-          <br/>
-          <br/>
-            <a href="https://fw.escapps.net/Display_Portal?destination=/">Organization Handbook</a>
-            <h4>Phone: {location.phone}</h4>
-            <h4>Address: {location.address} </h4>
-          </div>
-        )
+            <div key={location.name} className="location-card">
+              <h2 key={location.name}>{location.name}</h2>
+            <br/>
+            <br/>
+              <a href="https://fw.escapps.net/Display_Portal?destination=/">Organization Handbook</a>
+              <h4 key={location.phone}>Phone: {location.phone}</h4>
+              <p key={location.address}>Address: {location.address} </p>
+            </div>
+          )
       })}
-     
-
     </div>
   )
 }

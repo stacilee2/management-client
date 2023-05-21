@@ -72,13 +72,41 @@ td {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 tr {
-  border: 2px solid rgb(239, 7, 200);
+  border: 2px solid rgb(169, 92, 156);
+}
+.location-container {
+  position: absolute;
+  width: 900px;
+  height: 400px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+  z-index: 15;
+  top: 35%;
+  left: 38%;
+  margin: -100px 0 0 -150px;
 }
 .location-card{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgb(106, 7, 159);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   max-width: 600px;
-  margin: auto;
-  padding: 3%;
+  max-height: 400px;
+  margin: 2%;
+  padding: 40px 0;
   text-align: center;
-  display: left
+  display: center;
+  background-color: rgb(253, 205, 235);
+}
+.add-client-form {
+  box-shadow: 0 2px 8px 0 rgba(2, 2, 2, 2.2);
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  margin: 2%;
+  max-width: 900px;
+  max-height: 150px;
+  padding: 10px;
+  text-align: center;
+  display: center;
 }
