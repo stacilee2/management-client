@@ -54,26 +54,6 @@
   color:rgb(9, 7, 8);
   padding: 0px;
 }
-table {
-  border: 2px solid rgb(239, 7, 200);
-  width: 1200px;
-  height: 100px;
-  margin: auto;
-  padding: 20px 10px;
-}
-  
-th {
-  background-color: rgb(208, 148, 199);
-}
-  
-td {
-  text-align: center;
-  background-color: rgb(220, 213, 220);
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-tr {
-  border: 2px solid rgb(169, 92, 156);
-}
 .location-container {
   position: absolute;
   width: 900px;
@@ -97,7 +77,37 @@ tr {
   display: center;
   background-color: rgb(253, 205, 235);
 }
+.client-form-container {
+  position: absolute;
+  width: 900px;
+  height: 400px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+  z-index: 15;
+  top: 35%;
+  left: 38%;
+  margin: -100px 0 0 -150px;
+}
 .add-client-form {
+  box-shadow: 0 4px 8px 0 rgb(106, 7, 159);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  max-width: 600px;
+  margin: 2%;
+  padding: 20px 0;
+  text-align: center;
+  display: center;
+  background-color: rgb(249, 225, 240);
+}
+.client-button {
+  padding: 2%;
+  margin: 2px;
+  text-align: center;
+  box-shadow: 0 1px 6px 0 rgba(2, 2, 2, 2.2);
+}
+
+.add-location-form {
   box-shadow: 0 2px 8px 0 rgba(2, 2, 2, 2.2);
   position: absolute;
   top: 25%;
@@ -109,9 +119,10 @@ tr {
   text-align: center;
   display: center;
 }
-.client-button{
-  padding: 2%;
-  margin: 2px;
-  text-align: center;
-  box-shadow: 0 1px 6px 0 rgba(2, 2, 2, 2.2);
+.caseload{
+  padding: 0%;
+  margin: 3%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: medium;
+  display: left;
 }

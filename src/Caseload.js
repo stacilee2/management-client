@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, NavLink } from 'react-router-dom';
+
 
 function Caseload() {
 
     //Set state to data object
     const [clients, setClients] = useState([])
+    const navigate = useNavigate()
 
        // Make GET request to backend for caseload information
         useEffect(() => {
@@ -11,10 +14,6 @@ function Caseload() {
             .then(r => r.json())
             .then(data => setClients(data))
         }, [])
-
-        function handleEditClick (e) {
-            console.log("I've been clicked!", e)
-        };
 
         function handleDeleteClient(deletedClient) {
             const updatedClients = clients.filter((client) => client.id !== deletedClient)
@@ -28,6 +27,7 @@ function Caseload() {
             })
               .then((r) => r.json())
               .then(() => handleDeleteClient(client));
+              navigate('/locations')
           };
 
     return (
@@ -35,16 +35,17 @@ function Caseload() {
         <div>
           {clients.map(client => {
         return (
-          <div key={client.id}>
+          <ul key={client.id} className="caseload">
             <hr />
+           
             <p>Name: {client.name}</p>
             <p>Age: {client.age}</p>
             <p>Eligibility: {client.eligibility}</p>
-            <p>Minutes: {client.minutes}</p>
-            <button onClick={handleEditClick}>Edit</button>
-            <button id={client.id} onClick={handleDeleteClick}>Delete</button>
+            <p>Minutes: {client.minutes} <NavLink to={`/clients/${client.id}/client/edit`}> Edit Minutes</NavLink></p>
+            <br/>
+            <button id={client.id} onClick={handleDeleteClick}>Delete Client</button>
             <hr />
-          </div>
+          </ul>
         );
       })}
         </div>

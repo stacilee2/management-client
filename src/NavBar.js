@@ -44,15 +44,15 @@ function NavBar( {GiConversation} ) {
       Locations
       </NavLink>
       <NavLink 
-        exact to="/locations/:locationId/clients/new"
-        className="nav-link"
-        style={({ isActive }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isActive ? "white" : "white"
-            };
-          }}>
-      Create Client
+      exact to="/locations/new"
+      className="nav-link"
+      style={({ isActive }) => {
+        return {
+          fontWeight: isActive ? "bold" : "",
+          color: isActive ? "white" : "white"
+        };
+      }}>
+      Create Location
       </NavLink>
     </Navbar>
   </div>

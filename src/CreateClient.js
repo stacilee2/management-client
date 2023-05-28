@@ -15,6 +15,7 @@ function CreateClient() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setFormData("")
 
     fetch(`http://localhost:9292/locations/${locationId}/clients`, {
     method: "POST",
@@ -25,7 +26,7 @@ function CreateClient() {
     })
     .then((r) => r.json())
     .then((newClient) => console.log(newClient))
-    // navigate("/caseload")
+    navigate("/caseload")
     };
 
     //MAKE A POST REQUEST HERE WITH NEW DATA
@@ -40,6 +41,7 @@ function CreateClient() {
     }
 
   return (
+    <div className="client-form-container">
     <div className="add-client-form">
     <form onSubmit={handleSubmit}>
       <label>Name: </label>
@@ -84,7 +86,7 @@ function CreateClient() {
         <button type="submit">Submit</button>
     </form>
     </div>
-   
+    </div>
   )
 }
 

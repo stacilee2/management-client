@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 function Locations() {
 
-    const [locations, setLocations] = useState([])
+  const [locations, setLocations] = useState([])
 
-    useEffect(() => {
-      fetch(`http://localhost:9292/locations`)
-      .then(r => r.json())
-      .then(data => setLocations(data))
-  }, []);
+  useEffect(() => {
+    fetch(`http://localhost:9292/locations`)
+    .then(r => r.json())
+    .then(data => setLocations(data))
+}, []);
+
 
   return (
     <div className="location-container">
@@ -18,7 +19,8 @@ function Locations() {
         return(
             <div key={location.name} className="location-card">
               <h3 key={location.name}>{location.name}</h3>
-              <NavLink to={`/locations/${location.id}/clients/new`}>Create Client</NavLink>
+              <br/>
+              <NavLink to={`/locations/${location.id}/clients/new`}>Add Client</NavLink>
               {clientsArray.map((client)=>{
                 return(
                 <p key={client.name}>{client.name}</p>
@@ -27,6 +29,7 @@ function Locations() {
               <br />
             <br/>
               <a href="https://fw.escapps.net/Display_Portal?destination=/">Organization Handbook</a>
+              <br/>
             </div>
           )
       })}
