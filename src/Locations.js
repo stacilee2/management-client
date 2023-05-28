@@ -1,28 +1,32 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+import { NavLink } from 'react-router-dom';
 
-function Locations( {therapists}) {
+function Locations() {
 
-  let therapistList = therapists
-  console.log(therapistList)
+    const [locations, setLocations] = useState([])
 
-  let locationsList = [ 
-    {name: "Southern Hills", phone: "523-444-5252", address: "320 Southern Hills Rd., Tallulah, TX 77809"}, 
-    {name: "Northern Oaks", phone: "435-970-5578", address: "545 Northern Oaks Blvd., Bridgerton, TX 73245"},
-    {name: "Eastern Glades", phone: "446-908-0897", address: "112 Eastern Glades St., Stuckey, TX 72234"},
-    {name: "Western Fields", phone: "322-998-0025", address: "645 Western Fields Way, Harrison, TX 76688"}
-  ]
+    useEffect(() => {
+      fetch(`http://localhost:9292/locations`)
+      .then(r => r.json())
+      .then(data => setLocations(data))
+  }, []);
 
   return (
     <div className="location-container">
-      {locationsList.map((location) => {
+      {locations.map((location) => {
+        let clientsArray = location.clients
         return(
             <div key={location.name} className="location-card">
-              <h2 key={location.name}>{location.name}</h2>
-            <br/>
+              <h3 key={location.name}>{location.name}</h3>
+              <NavLink to={`/locations/${location.id}/clients/new`}>Create Client</NavLink>
+              {clientsArray.map((client)=>{
+                return(
+                <p key={client.name}>{client.name}</p>
+                )
+              })}
+              <br />
             <br/>
               <a href="https://fw.escapps.net/Display_Portal?destination=/">Organization Handbook</a>
-              <h4 key={location.phone}>Phone: {location.phone}</h4>
-              <p key={location.address}>Address: {location.address} </p>
             </div>
           )
       })}

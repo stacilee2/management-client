@@ -2,15 +2,13 @@ import React from 'react';
 
 function ReadRow ({ id, name, age, location, eligibility, minutes, setRowId }) {
 
-    // const {id, name, age, location, eligibility, minutes} = props
-
     function handleEdit(event, id){
         event.preventDefault();
         setRowId(id)
     }
 
     function handleRemove(){
-        fetch(`http://localhost:9292/client/${id}`, {
+        fetch(`http://localhost:9292/clients/${id}`, {
             method: "DELETE",
         })
         .then((r) => r.json())

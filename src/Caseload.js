@@ -1,79 +1,52 @@
-import React, { useState, useEffect } from 'react'
-import ReadRow from './ReadRow';
-import EditRow from './EditRow';
+import React, { useState, useEffect } from 'react';
 
-function Caseload( {therapists} ) {
+function Caseload() {
 
     //Set state to data object
-    const [rows, setRows] = useState([])
-    const [editRowId, setRowId] = useState(null)
-   
-        //Make GET request to backend for caseload information
+    const [clients, setClients] = useState([])
+
+       // Make GET request to backend for caseload information
         useEffect(() => {
-            fetch("http://localhost:9292/client")
+            fetch("http://localhost:9292/clients")
             .then(r => r.json())
-            .then(data => setRows(data))
+            .then(data => setClients(data))
         }, [])
 
-    //Create a component and hand in props and store props value into data variable
-    //Return table with table headers
-    //Map over data and iterate through each row and return Row component with values
-    const Table = (props) => {
-        const {data} = props
-        return (
-        <form>
-        <table>
-            <tbody>
-                <tr>
-                    <th>Student Name</th>
-                    <th>DOB</th>
-                    <th>Location</th>
-                    <th>Eligibility</th>
-                    <th>Minutes Owed:</th>
-                    <th>Edit / Remove Client: </th>
-                </tr>
-               
-                {data.map((row) => 
-                    <>
-                        {editRowId === row.id ? (
-                            <EditRow key = {row.id} />
-                        ) : (
-                            <ReadRow 
-                            setRowId={setRowId}
-                            key = {row.name}
-                            id = {row.id}
-                            name = {row.name}
-                            age = {row.age}
-                            location = {row.location}
-                            eligibility = {row.eligibility}
-                            minutes = {row.minutes} /> 
-                        )}
-                </>)}
-            </tbody>
-        </table>
-        </form>
-    )
-    }
+        function handleEditClick (e) {
+            console.log("I've been clicked!", e)
+        };
 
-    //Return Table component handing in rows
+        function handleDeleteClient(deletedClient) {
+            const updatedClients = clients.filter((client) => client.id !== deletedClient)
+            setClients(updatedClients);
+          };
+
+        function handleDeleteClick(e) {
+            let client = e.target.id
+            fetch(`http://localhost:9292/clients/${client}`, {
+              method: "DELETE",
+            })
+              .then((r) => r.json())
+              .then(() => handleDeleteClient(client));
+          };
+
     return (
+        
         <div>
-            <h1 className="page-header">Caseload: Region 4</h1>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <form className="add-client-form">
-            <label align="center">Add Client:</label>
-                <input type="text" name="name" required="required" placeholder="Enter full name..."></input>
-                <input type="text" name="age" required="required" placeholder="Enter DOB..."></input>
-                <input type="text" name="location" required="required" placeholder="Enter location..."></input>
-                <input type="text" name="eligibility" required="required" placeholder="Enter eligibility..."></input>
-                <input type="text" name="minutes" required="required" placeholder="Enter minutes..."></input>
-                <button type="submit">Add Client</button>
-            </form>
-            <br/>
-            <Table key={rows} data = {rows}/>
+          {clients.map(client => {
+        return (
+          <div key={client.id}>
+            <hr />
+            <p>Name: {client.name}</p>
+            <p>Age: {client.age}</p>
+            <p>Eligibility: {client.eligibility}</p>
+            <p>Minutes: {client.minutes}</p>
+            <button onClick={handleEditClick}>Edit</button>
+            <button id={client.id} onClick={handleDeleteClick}>Delete</button>
+            <hr />
+          </div>
+        );
+      })}
         </div>
     )
 }
