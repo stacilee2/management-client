@@ -55,25 +55,20 @@
   padding: 0px;
 }
 .location-container {
-  position: absolute;
   width: 900px;
   height: 400px;
-  z-index: 15;
-  top: 50%;
-  left: 50%;
-  z-index: 15;
-  top: 35%;
-  left: 38%;
-  margin: -100px 0 0 -150px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
 }
 .location-card{
   box-shadow: 0 4px 8px 0 rgb(106, 7, 159);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  max-width: 600px;
-  margin: 2%;
-  padding: 2%;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  display: center;
+  justify-content: center;
   background-color: rgb(253, 205, 235);
 }
 .client-form-container {
