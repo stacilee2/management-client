@@ -1,5 +1,5 @@
 # Therapy Client Management Systems
-Help your clinic improve their organizational skills with the application created by Specialty Therapy Services, LLC.
+Help your therapy clinic improve organization and monitoring of therapy minutes with Specialty Therapy Services premier management system. Your caseload with be easy to manage with our application, giving you more time to do what you love--help your clients communicate better.
 ***
 # Installation
 1. Clone this git repo: git@github.com:stacilee2/management-client.git
