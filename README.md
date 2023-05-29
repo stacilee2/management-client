@@ -12,8 +12,10 @@ Help your clinic improve their organizational skills with the application create
 
 # Features
 
-* Our application organizes your regional caseload by location and therapist
+* Our application organizes your regional caseload by location with our company's database
 * Easily keep up-to-date with minutes owed on each client
-* Update client and location information efficiently
-* Add new clients with just a few clicks
+* Update client minutes as needed location information efficiently
+* Add new clients to locations 
+* Remove clients easily from locations
+* Create a new location 
 * Quickly access tech support and email through landing page
