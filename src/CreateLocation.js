@@ -1,77 +1,48 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function CreateLocation () {
 
-    const[newLocation, setNewLocation] = useState([])
+    const[name, setName] = useState("")
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault();
-        setNewLocation("")
+        setName("")
 
         fetch("http://localhost:9292/locations", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(newLocation),
+            body: JSON.stringify({name}),
             })
             .then((r) => r.json())
-            .then((newLocation) => console.log(newLocation))
+            .then((data) => console.log(data))
+            navigate('/locations')
             }
 
         function handleChange(e){
-            setNewLocation(e.target.value)
+            setName(e.target.value)
         }
     
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <h3 className="home-header">Create New Location Here:</h3>
+            <hr/>
+            <br/>
+            <form className="location-form-container "onSubmit={handleSubmit}>
+                <h3>Add New Location Here:</h3>
                 <input 
                 type="text"
                 onChange={handleChange}
-                value={newLocation}>
+                name="name" 
+                value={name}>
                 </input>
-                <button>Click Me!</button>
+                <button type="submit">Submit</button>
             </form>
-            <p>{newLocation}</p>
         </div>
     )
 }
-
-
-//     const [newLocation, setNewLocation] = useState("");
-
-//     function handleChange(e) {
-//         setNewLocation(e.target.value)
-//     }
-
-//     function handleSubmit(e) {
-//         e.preventDefault();
-//         fetch("http://localhost:9292/locations", {
-//         method: "POST",
-//         mode: 'cors',
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(newLocation),
-//         })
-//         .then((r) => r.json())
-//         .then((data) => console.log(data))
-//         };
-
-//   return (
-//     <div className="add-location-form">
-//         <form onSubmit={handleSubmit}>
-//             <label>Create Location</label>
-//             <input 
-//                 type="text" 
-//                 value={ newLocation } 
-//                 onChange={handleChange} >
-//             </input>
-//             <button type="submit">Submit</button>
-//         </form>
-//     </div>
-//   )
-// }
 
 export default CreateLocation;

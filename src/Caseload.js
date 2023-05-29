@@ -33,6 +33,7 @@ function Caseload() {
     return (
         
         <div>
+            <h3 className="home-header">Caseload</h3>
           {clients.map(client => {
         return (
           <ul key={client.id} className="caseload">

@@ -44,6 +44,7 @@ function CreateClient() {
     <div className="client-form-container">
     <div className="add-client-form">
     <form onSubmit={handleSubmit}>
+      <h3>Add Client to Caseload:</h3>
       <label>Name: </label>
       <input 
         type="text" 
@@ -53,6 +54,7 @@ function CreateClient() {
         value={formData.name} 
         onChange={handleChange} 
       />
+      <br/>
       <br/>
       <label>Age: </label>
       <input 
@@ -64,6 +66,7 @@ function CreateClient() {
         onChange={handleChange}
         />
       <br/>
+      <br/>
       <label>Eligibility: </label>
       <input 
         type="text" 
@@ -74,6 +77,7 @@ function CreateClient() {
         onChange={handleChange}
         />
       <br/>
+      <br/>
       <label>Minutes: </label>
       <input 
         type="text" 
@@ -83,6 +87,8 @@ function CreateClient() {
         value={formData.minutes} 
         onChange={handleChange}
         />
+          <br/>
+          <br/>
         <button type="submit">Submit</button>
     </form>
     </div>

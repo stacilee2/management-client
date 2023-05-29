@@ -13,7 +13,11 @@ function Locations() {
 
 
   return (
+    <div>
+      <h3 className="home-header">Locations</h3>
+      <hr/>
     <div className="location-container">
+     
       {locations.map((location) => {
         let clientsArray = location.clients
         return(
@@ -33,6 +37,7 @@ function Locations() {
             </div>
           )
       })}
+    </div>
     </div>
   )
 }
