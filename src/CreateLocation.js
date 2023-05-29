@@ -28,7 +28,7 @@ function CreateLocation () {
     
     return (
         <div>
-            <h3 className="home-header">Create New Location Here:</h3>
+            <h3 className="home-header">Create Location</h3>
             <hr/>
             <br/>
             <form className="location-form-container "onSubmit={handleSubmit}>

@@ -29,10 +29,11 @@ function EditClient(){
             };
 
     return (
-        <div>
-            <h2>Edit Client Form</h2>
+        <div className="client-form-container">
+        <div className="add-client-form">
+            <h3>Edit Minutes for Client</h3>
                 <form onSubmit={handleSubmit}>
-                    <label>Update Minutes for Client: </label>
+                    <label>Minutes Owed: </label>
                     <input 
                         type="text"
                         onChange={handleChange}
@@ -41,6 +42,7 @@ function EditClient(){
                     </input>
                     <button type="submit">Submit</button>
                 </form>
+        </div>
         </div>
     )
 }
