@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 
-function CreateClient() {
+function CreateClient({onAddClient}) {
 
   const { locationId } = useParams();
   const navigate = useNavigate();
@@ -25,8 +25,8 @@ function CreateClient() {
     body: JSON.stringify(formData),
     })
     .then((r) => r.json())
-    .then((newClient) => console.log(newClient))
-    navigate("/caseload")
+    .then((newClient) => onAddClient(newClient))
+    navigate('/locations')
     };
 
     //MAKE A POST REQUEST HERE WITH NEW DATA

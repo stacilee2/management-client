@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-function EditClient(){
+function EditClient( {onUpdateClient} ){
 
     const[minutes, setMinutes] = useState("")
     const { clientId } = useParams();
@@ -24,8 +24,8 @@ function EditClient(){
             body: JSON.stringify({minutes}),
             })
             .then((r) => r.json())
-            .then((data) => console.log(data))
-            navigate("/caseload")
+            .then((updatedClient) => onUpdateClient(updatedClient))
+            navigate('/locations')
             };
 
     return (

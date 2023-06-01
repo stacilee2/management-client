@@ -22,17 +22,6 @@ function NavBar( {GiConversation} ) {
       Home
       </NavLink>
       <NavLink 
-        exact to="/caseload"
-        className="nav-link"
-        style={({ isActive }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isActive ? "white" : "white"
-            };
-          }}>
-      Caseload
-      </NavLink>
-      <NavLink 
       exact to="/locations"
       className="nav-link"
       style={({ isActive }) => {

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function CreateLocation () {
+function CreateLocation ({onAddLocation}) {
 
     const[name, setName] = useState("")
     const navigate = useNavigate()
@@ -18,7 +18,7 @@ function CreateLocation () {
             body: JSON.stringify({name}),
             })
             .then((r) => r.json())
-            .then((data) => console.log(data))
+            .then((newLocation) => onAddLocation(newLocation))
             navigate('/locations')
             }
 
