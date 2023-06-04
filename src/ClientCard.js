@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
-
 function ClientCard( {handleDeleteClient} ) {
 
     const navigate = useNavigate()
     const {clientId} = useParams();
-
     const [client, setClient] = useState([])
 
     //Using params to get specific client information

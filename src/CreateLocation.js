@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-function CreateLocation ({onAddLocation}) {
+function CreateLocation () {
 
     const[name, setName] = useState("")
+    const[newLocation, setNewLocation] = useState([])
     const navigate = useNavigate()
+
+    function onAddLocation(newLocation) {
+       setNewLocation(newLocation)
+      }
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -20,8 +25,9 @@ function CreateLocation ({onAddLocation}) {
             .then((r) => r.json())
             .then((newLocation) => onAddLocation(newLocation))
             navigate('/locations')
+            console.log(newLocation)
             }
-
+            
         function handleChange(e){
             setName(e.target.value)
         }

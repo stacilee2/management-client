@@ -25,6 +25,7 @@ function CreateClient({onAddClient}) {
     body: JSON.stringify(formData),
     })
     .then((r) => r.json())
+    
     .then((newClient) => onAddClient(newClient))
     navigate('/locations')
     };
