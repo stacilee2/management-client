@@ -26,7 +26,7 @@ function CreateClient({onAddClient}) {
     })
     .then((r) => r.json())
     
-    .then((newClient) => onAddClient(newClient))
+    .then((client) => onAddClient(client))
     navigate('/locations')
     };
 

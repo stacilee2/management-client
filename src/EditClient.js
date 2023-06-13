@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-function EditClient( {onUpdateClient} ){
+function EditClient(){
 
     const[minutes, setMinutes] = useState("")
     const { clientId } = useParams();

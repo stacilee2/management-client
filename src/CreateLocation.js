@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
-function CreateLocation () {
+function CreateLocation ({locations, setLocations}) {
 
     const[name, setName] = useState("")
-    const[newLocation, setNewLocation] = useState([])
+    // const[newLocation, setNewLocation] = useState([])
     const navigate = useNavigate()
 
+    //This is working, but when adding the setLocations function, it crashes
     function onAddLocation(newLocation) {
-       setNewLocation(newLocation)
+       setLocations([...locations, newLocation])
       }
 
     function handleSubmit(e) {
@@ -25,7 +26,6 @@ function CreateLocation () {
             .then((r) => r.json())
             .then((newLocation) => onAddLocation(newLocation))
             navigate('/locations')
-            console.log(newLocation)
             }
             
         function handleChange(e){
