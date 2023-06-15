@@ -31,20 +31,14 @@ function App() {
           const updatedLocation = {...currentLocation, clients: newClientList}
 
           const updatedLocations = locations.map(location => location.id === newClient.location_id ? updatedLocation : location)
-          console.log(updatedLocations)
-          navigate('/locations')
+          setLocations(updatedLocations)
       }
       
-
       function onUpdateClient(updatedClient) {
-        console.log(updatedClient)
-          // const currentLocation = locations.find(location => location.id === updatedClient.location_id)
-          // const updatedClientList = [...currentLocation.clients, updatedClient] //new client array
-
-          // const updatedLocation = {...currentLocation, clients: updatedClientList}
-
-          // const updatedLocations = locations.map(location => location.id === updatedClient.location_id ? updatedLocation : location)
-          // setLocations(updatedLocations)
+          const currentLocation = locations.find(location => location.id === updatedClient.location_id)
+          const newClientsArray = [...currentLocation.clients.filter(client => client.id === updatedClient.id )]
+          const updatedLocation = {...currentLocation, clients: newClientsArray}
+          console.log(updatedLocation)
       }
 
       function handleDeleteClient(deletedClient) {
