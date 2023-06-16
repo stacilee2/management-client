@@ -30,7 +30,6 @@ function CreateClient({onAddClient}) {
     navigate('/locations')
     };
 
-    //MAKE A POST REQUEST HERE WITH NEW DATA
     function handleChange(e) {
       const name = e.target.name;
       let value = e.target.value;

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Home';
 import ClientCard from './ClientCard';
@@ -15,7 +15,6 @@ import { VscAccount } from "react-icons/vsc";
 function App() {
 
   const [locations, setLocations] = useState([])
-  const navigate = useNavigate()
 
       useEffect(() => {
         fetch(`http://localhost:9292/locations`)
@@ -24,12 +23,9 @@ function App() {
     }, []);
 
   function onAddClient(newClient) {
-
           const currentLocation = locations.find(location => location.id === newClient.location_id)
           const newClientList = [...currentLocation.clients, newClient] //new client array
-
           const updatedLocation = {...currentLocation, clients: newClientList}
-
           const updatedLocations = locations.map(location => location.id === newClient.location_id ? updatedLocation : location)
           setLocations(updatedLocations)
       }
@@ -56,7 +52,6 @@ function App() {
         <Route exact path='/' element={<Home VscAccount={VscAccount} AiOutlineMail={AiOutlineMail} />} />
         <Route path='/clients/:clientId' element={<ClientCard handleDeleteClient={handleDeleteClient}/>} />
         <Route path='/locations' element={<Locations locations = {locations} />} />
-        <Route path='/locations/location/new' element={<CreateLocation/>} />
         <Route path='/locations/:locationId/clients/new' element={<CreateClient onAddClient={onAddClient}/>} />
         <Route path='/clients/:clientId/client/edit' element={<EditClient onUpdateClient={onUpdateClient}/>} />
         <Route path='/locations/new' element={<CreateLocation locations={locations} setLocations={setLocations}/>} />

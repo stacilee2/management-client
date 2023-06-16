@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Locations( {locations} ){
 
   return(
 
     <div>
+        <h3 className="home-header">Locations</h3>
+            <hr/>
       {locations.map(location => {
         return(
           <div key={location.name} className="location-card">
